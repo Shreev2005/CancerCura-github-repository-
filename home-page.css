@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 50px;
+    background-color: #fff;
+    box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.55);
+}
+.nav {
+    display: flex;
+    gap: 45px;
+}
+.nav a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.741);
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.nav a:hover {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.buttons {
+    display: flex;
+    gap: 25px;
+}
+.buttons button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.buttons button:hover {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
+.sign-up {
+    background-color: #982176; /* color code : #982176 */
+    color: white;
+}
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: white;
+    gap: 20px;
+    height: 100dvh;
+    background-image: url("bg.jpg");
+}
+.hero-content {
+    max-width: 50%;
+}
+.hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.hero-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.cta-buttons {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.cta-buttons i{
+    margin-left: 10px;
+    font-size: larger;
+}
+.cta-buttons button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+    display: flex;
+   
+}
+.cta-buttons button:hover {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    align-items: center;
+    display: flex;
+    transform: scale(1.08);
+    transition: 0.3s ease;
+}
+.book-now {
+    background-color: #982176;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    animation: left-right 0.5s ease-in-out;
+}
+.read-more
+{
+    background-color: white;
+    text-decoration: none;
+    animation: right-left 0.5s ease-in-out;
+}
+.btn-special{
+    padding: 5px 15px;
+    border: 2px solid transparent;
+    outline: none;
+    border-radius: 5px;
+    background-color: #982176;
+    color: white;
+}
+.find-btn{
+    padding: 8px 10px;
+    border-radius: 7px;
+    background: #982176;
+    color: #fff;
+    border: 2px solid transparent;
+    box-shadow:5px 6px 2px #FCC737;
+}
+
+.find-btn:hover{
+    padding: 8px 10px;
+    border-radius: 7px;
+    background: #7c1a60;
+    color: #fff;
+    border: 2px solid transparent;
+    box-shadow:5px 6px 2px #FCC737;
+    transform: scale(0.930);
+    animation: 0.5s ease;
+}
+
+.btn-special a{
+    text-decoration: none;
+    color: none;
+}
+.read-more a
+{
+    text-decoration: none;
+    color: #982176;
+}
+.features {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative;
+}
+.feature-box {
+    background-color: #982176;
+    color: white;
+    padding: 20px 25px;
+    border-radius: 5px;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+}
+.feature-box i{
+    font-size: 20px;
+}
+.box1{
+    position: absolute;
+    top: -75px;
+    left: 15%;
+    cursor: grab ;
+    
+}
+.box2{
+    position: absolute;
+    top: -75px;
+    cursor: grab ;
+}
+.box3{
+    position: absolute;
+    top: -75px;
+    right: 15%;
+    cursor: grab ;
+}
+.main{
+    padding: 20px;
+    width: auto;
+    
+}
+.kit-container img
+{
+    width: 300px;
+}
+.kit-container
+{
+    margin-top: 100px;
+    text-align: left;
+    margin-bottom: 80px;
+}
+.text-area{
+    padding: 35px 0px;
+}
+.find-doc
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-image: url("bg.jpg");
+    background-size: cover;
+    border-radius: 30px;
+    margin-bottom: 90px;
+    padding: 40px 50px;
+    gap: 110px;
+    width: 1000px;
+}
+
+#support{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+/* Fonts */
+.cookie-regular 
+{
+    font-family: "Cookie", cursive;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40px;
+}
+.rock-salt-regular 
+{
+    font-family: "Rock Salt", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.kantumruy-pro-p {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: xx-large;
+  }
+
+.kantumruy-pro-pa {
+    font-family: "Kantumruy Pro", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: large;
+}
+
+  .dm-serif-text-regular {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .dm-serif-text-regular-italic {
+    font-family: "DM Serif Text", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  .poppins-extralight {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  .poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .poppins-extrabold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  .poppins-black {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  .poppins-thin-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+  }
+  
+  .poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+  
+  .poppins-light-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .poppins-medium-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .poppins-semibold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .poppins-bold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+  }
+  
+  .poppins-black-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+  }
+  
+  
+
+/* animations */
+
+@keyframes appear {
+    from{
+        opacity: 0;
+        scale: 0.5;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes left-right {
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes right-left {
+    0%{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes appear-from-left {
+    from{
+        opacity: 0;
+       transform:translateX(-250px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.block{
+    animation: appear  linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 
+    30%; 
+}
+.block-leftappear{
+    animation: appear-from-left  linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 
+    50%; 
+}

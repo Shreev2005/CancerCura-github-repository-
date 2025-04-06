@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Doctor Profiles</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+
+  .doctor-section {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .doctor-list {
+    width: 70%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 15px;
+    overflow-y: auto;
+  }
+
+  .doctor-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .doctor-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+  }
+
+  .doctor-card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .doctor-card p {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+
+  .doctor-details {
+    width: 30%;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+  }
+
+  .doctor-details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .doctor-details h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .doctor-details p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .book-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+  }
+
+  .book-button:hover {
+    background-color: #0056b3;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="doctor-section">
+  <div class="doctor-details hidden" id="detailedDoctor">
+    <img id="detailedDoctorImage" src="" alt="Doctor Image">
+    <h2 id="detailedDoctorName"></h2>
+    <p id="detailedDoctorLocation"></p>
+    <p id="detailedDoctorRating"></p>
+    <p id="detailedDoctorPrice"></p>
+    <p id="detailedDoctorDescription"></p>
+    <button class="book-button">Book Appointment</button>
+  </div>
+  <div class="doctor-list" id="doctorList">
+    </div>
+</div>
+
+<script>
+  const doctors = [
+    // ... (Your doctor data here, same as before) ...
+  ];
+
+  const doctorList = document.getElementById("doctorList");
+  const detailedDoctor = document.getElementById("detailedDoctor");
+
+  doctors.forEach(doctor => {
+    const card = document.createElement("div");
+    card.classList.add("doctor-card");
+    card.innerHTML = `
+      <img src="${doctor.image}" alt="${doctor.name}">
+      <h3>${doctor.name}</h3>
+      <p>${doctor.location}</p>
+      <p>Rating: ${doctor.rating}</p>
+      <p>Price: ${doctor.price}</p>
+      <button class="book-button">Book</button>
+    `;
+    card.addEventListener("click", () => {
+      showDetailedDoctor(doctor);
+    });
+    doctorList.appendChild(card);
+  });
+
+  function showDetailedDoctor(doctor) {
+    // ... (Your showDetailedDoctor function here, same as before) ...
+  }
+</script>
+
+</body>
+</html>

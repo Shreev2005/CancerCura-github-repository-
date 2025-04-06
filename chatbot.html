@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="sidebar">
+        <div id="sidebar-top">
+            <h1 id=" cookie-regular" class="cookie-regular">Cancer cura</h1>
+            <div class="loading-indicator" id="chatbot-loading-indicator"></div>
+        </div>
+        <button id="new-chat-button" onclick="newChat()">
+            <i class="fas fa-plus mr-2"></i> New Chat
+        </button>
+        <div id="history-container">
+            <h2 class="sr-only">Chat History</h2>
+        </div>
+    </div>
+
+    <div class="area">
+        <div id="chat-output">
+            <h1 id="welcome-title" style="color: #982176;">Welcome to the LifeAssistant!<i class="fa-solid fa-heart-pulse" style="margin-left: 12px;"></i></h1>
+            <p id="welcome-title-p">How can i help you today ??</p>
+        </div>
+        <div id="input-container">
+            <div class="input-space">
+                <textarea id="myTextArea" class="textarea" placeholder="Type your message..."></textarea>
+                <div class="btn-space">
+                    <button id="upload-button" onclick="document.getElementById('file-upload').click()"> <i class="fa-solid fa-upload"></i> upload</button>
+                    <input type="file" id="file-upload" accept="*" onchange="uploadFile()">
+                    <button id="send-button" onclick="sendMessage()"><i class="fa-solid fa-paper-plane" style="transform: rotate(33deg);"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chatHistory = [];
+        let currentChat = [];
+        let chatCounter = 1;
+        const loadingIndicator = document.getElementById('chatbot-loading-indicator');
+        const historyContainer = document.getElementById('history-container');
+        const myTextArea = document.getElementById('myTextArea');
+
+
+        function displayMessage(message, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message', sender + '-message');
+            messageDiv.textContent = message;
+            document.getElementById('chat-output').appendChild(messageDiv);
+            document.getElementById('chat-output').scrollTop = document.getElementById('chat-output').scrollHeight;
+        }
+
+        async function sendMessage() {
+            const userInput = myTextArea.value.trim();
+            if (!userInput) return;
+
+            displayMessage(userInput, 'user');
+            myTextArea.value = '';
+            myTextArea.style.height = 'auto';
+            loadingIndicator.style.display = 'inline-block';
+
+            currentChat.push({ role: "user", content: userInput });
+
+            try {
+                // Simulate a 2-second delay
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                const response = await fetch('/api/chat', { //  Replace '/api/chat' with your actual server endpoint.
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ messages: currentChat }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const botResponse = data.response;
+                loadingIndicator.style.display = 'none';
+
+                displayMessage(botResponse, 'bot');
+                currentChat.push({ role: "assistant", content: botResponse });
+                if (chatHistory.length === 0 || currentChat.length === 2) {
+                    chatHistory.push({ title: `Chat ${chatCounter}`, messages: [...currentChat] });
+                    chatCounter++;
+                } else {
+                    chatHistory[chatHistory.length - 1] = { title: chatHistory[chatHistory.length - 1].title, messages: [...currentChat] };
+                }
+                updateHistoryDisplay();
+
+
+            } catch (error) {
+                console.error('Error fetching chatbot response:', error);
+                displayMessage('Error: Unable to fetch response.', 'bot');
+                loadingIndicator.style.display = 'none';
+            }
+        }
+
+        function updateHistoryDisplay() {
+            historyContainer.innerHTML = '<h2 class="sr-only">Chat History</h2>';
+            chatHistory.forEach((chat, index) => {
+                const chatButton = document.createElement('button');
+                chatButton.className = 'chat-history-item';
+                const chatTitleSpan = document.createElement('span');
+                chatTitleSpan.className = 'chat-title';
+                chatTitleSpan.textContent = chat.title;
+
+                const renameButton = document.createElement('button');
+                renameButton.className = 'rename-button';
+                renameButton.innerHTML = '<i class="fas fa-edit"></i>';
+                renameButton.onclick = (event) => {
+                    event.stopPropagation();
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.value = chat.title;
+                    input.className = 'rename-input';
+                    const confirmButton = document.createElement('button');
+                    confirmButton.textContent = '✓';
+                    confirmButton.className = 'rename-confirm-button';
+                    confirmButton.onclick = (event) => {
+                        event.stopPropagation();
+                        chat.title = input.value;
+                        updateHistoryDisplay();
+                    };
+                    const cancelBtn = document.createElement('button');
+                    cancelBtn.textContent = '✗';
+                    cancelBtn.className = 'rename-cancel-button';
+                    cancelBtn.onclick = (event) => {
+                        event.stopPropagation();
+                        updateHistoryDisplay();
+                    }
+
+                    chatButton.innerHTML = '';
+                    chatButton.appendChild(input);
+                    chatButton.appendChild(confirmButton);
+                    chatButton.appendChild(cancelBtn);
+
+                };
+
+                chatButton.appendChild(chatTitleSpan);
+                chatButton.appendChild(renameButton);
+                chatButton.onclick = () => loadChat(index);
+                historyContainer.appendChild(chatButton);
+            });
+        }
+
+        function loadChat(index) {
+            currentChat = [...chatHistory[index].messages];
+            document.getElementById('chat-output').innerHTML = '<h1 id="welcome-title">Welcome to the LifeAssistant!</h1>';
+            currentChat.forEach(message => {
+                displayMessage(message.content, message.role);
+            });
+            if (currentChat.length === 0) {
+                document.getElementById('chat-output').innerHTML = '<h1 id="welcome-title">Welcome to the LifeAssistant!</h1>';
+            }
+        }
+
+        function newChat() {
+            currentChat = [];
+            document.getElementById('chat-output').innerHTML = '<h1 id="welcome-title">Welcome to the LifeAssistant!</h1>';
+            loadingIndicator.style.display = 'none';
+            updateHistoryDisplay();
+        }
+
+        document.getElementById('myTextArea').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        });
+
+        function uploadFile() {
+            const fileInput = document.getElementById('file-upload');
+            const file = fileInput.files[0];
+            if (file) {
+                console.log("file uploaded:", file.name);
+                //  Implement file upload logic here.  This function is triggered when a file is selected.
+                //  You would typically use a FormData object and an XMLHttpRequest or fetch()
+                //  to send the file to a server-side endpoint for processing.
+            }
+        }
+
+        const textArea = document.getElementById('myTextArea');
+
+        textArea.addEventListener('input', function () {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    </script>
+</body>
+</html>

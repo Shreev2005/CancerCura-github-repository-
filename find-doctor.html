@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="find-doctor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo cookie-regular">Cancer cura</div>
+        <nav class="nav">
+            <a href="home-page.html">Home</a>
+            <a href="find-doctor.html">Find doctor</a>
+            <a href="#">Find hospitals</a>
+            <a href="chatbot.html" target="_blank" class="ai-chat" style="color: white; align-items: center;">Ai assistant <i class="fa-solid fa-robot" style="margin-left: 4px;"></i></a>
+        </nav>
+        <div class="buttons">
+            <button class="login">Login <i class="fa-solid fa-arrow-right" style="margin-left: 2px;"></i></button>
+            <button class="sign-up">Sign Up</button>
+        </div>
+    </header>
+    <section class="title">
+        <div>
+            <h1>Your Guardian of Wellness..</h1>
+        </div>
+        <div>
+            <p>Our virtual network connects you to top hospitals and doctors, ensuring timely and expert treatment.</p>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search doctors">
+            <div class="btn-group">
+                <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Location <i class="fa-solid fa-location-dot" style="margin-left: 5px;"> </i>
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <i class="fa-solid fa-magnifying-glass" style="color: #FF9D23;"></i>
+            </div>
+        </div>
+    </section>
+
+<section>
+    <div class="flex-box">
+        <div class="filter-space">
+          <div class="filter">
+            <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Filter <i class="fa-solid fa-filter" style="margin: 2px;"></i>
+              </button>
+              <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="profile-space" id="profilespace">
+            <!-- <div class="card">
+                div
+            </div> -->
+
+            <div class="card-container" id="cardcontainer">
+
+             
+
+              </div>
+
+
+              <button class="show-more-button" id="showMoreButton">Show More</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</section>
+
+
+    
+
+    <footer style="background-color: #0000008e; color: #fff; padding: 40px 0;margin-top: 20px;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+            
+            <!-- Company Info -->
+            <div style="max-width: 300px;">
+                <h3 style="font-size: 24px; margin-bottom: 10px; color: #ffcc00;">Cancer cura</h3>
+                <p style="font-size: 14px; color: #aaa;">Our medical kit detects, our virtual network connects you to top hospitals and doctors, ensuring timely and expert treatment.</p>
+            </div>
+    
+            <!-- Quick Links -->
+            <div style="display: flex; flex-direction: column;">
+                <h4 style="font-size: 18px; margin-bottom: 10px; color: #ffcc00;">Quick Links</h4>
+                <a href="#home" style="color: #fff; margin-bottom: 6px; text-decoration: none; font-size: 14px; transition: 0.3s;">Home</a>
+                <a href="#about" style="color: #fff; margin-bottom: 6px; text-decoration: none; font-size: 14px; transition: 0.3s;">About Us</a>
+                <a href="#services" style="color: #fff; margin-bottom: 6px; text-decoration: none; font-size: 14px; transition: 0.3s;">Services</a>
+                <a href="#contact" style="color: #fff; text-decoration: none; font-size: 14px; transition: 0.3s;">Contact</a>
+            </div>
+    
+            <!-- Social Media -->
+            <div style="display: flex; flex-direction: column;">
+                <h4 style="font-size: 18px; margin-bottom: 10px; color: #ffcc00;">Follow Us</h4>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://facebook.com" target="_blank" style="color: #fff; font-size: 18px; text-decoration: none; transition: 0.3s;">Facebook</a>
+                    <a href="https://twitter.com" target="_blank" style="color: #fff; font-size: 18px; text-decoration: none; transition: 0.3s;">Twitter</a>
+                    <a href="https://instagram.com" target="_blank" style="color: #fff; font-size: 18px; text-decoration: none; transition: 0.3s;">Instagram</a>
+                    <a href="https://linkedin.com" target="_blank" style="color: #fff; font-size: 18px; text-decoration: none; transition: 0.3s;">LinkedIn</a>
+                </div>
+            </div>
+    
+        </div>
+    
+        <!-- Copyright Section -->
+        <div style="margin-top: 30px; text-align: center; font-size: 12px; color: #777;">
+            &copy; 2025 Cancer cura. All rights reserved.
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+  const profileContainer = document.getElementById('cardcontainer');
+  const showMoreButton = document.getElementById('showMoreButton');
+  let visibleCards = 6; // Initial number of visible cards
+  const totalCards = 100; // Total number of cards to generate
+
+  function createProfileCard() {
+      const card = document.createElement('div');
+      card.classList.add('doctor-card');
+      card.innerHTML = `
+                  <div class="doctor-image">
+                    <img src="data:image/jpeg;base64,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" alt="Doctor 1">
+                  </div>
+                  <div class="doctor-details">
+                    <div class="doctor-name">Dr. John Doe</div>
+                    <div class="doctor-experience">Experience: 10 yrs</div>
+                    <div class="doctor-ratings">Ratings: 4.8/5</div>
+                    <div class="doctor-location">City Hospital</div>
+                    <div class="doctor-cost">$100/session</div>
+                    <button class="book-button">View profile</button>
+                  </div>
+      `;
+      return card;
+  }
+
+  function generateCards() {
+      for (let i = 0; i < totalCards; i++) {
+          const card = createProfileCard(i);
+          profileContainer.appendChild(card);
+      }
+      showVisibleCards();
+  }
+
+  function showVisibleCards() {
+       const cards = document.querySelectorAll('.doctor-card');
+      cards.forEach((card, index) => {
+          if (index < visibleCards) {
+              card.style.display = 'flex';
+          } else {
+              card.style.display = 'none';
+          }
+      });
+
+      if (visibleCards >= totalCards) {
+          showMoreButton.style.display = 'none';
+      } else {
+          showMoreButton.style.display = 'flex';
+      }
+  }
+
+  showMoreButton.addEventListener('click', () => {
+      visibleCards += 6; // Show 3 more cards each time
+      showVisibleCards();
+  });
+
+  generateCards(); // Generate and show initial cards
+</script>
+
+
+</html>
